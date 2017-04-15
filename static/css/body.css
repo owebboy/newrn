@@ -1,0 +1,46 @@
+html {
+  font-family: Roboto, sans-serif;
+  color: #404040;
+}
+
+body {
+  display: flex;
+  margin: 0;
+}
+.body {
+  flex: 2;
+}
+
+header {
+  padding: 1em 0;
+  margin: 0;
+  text-align: center;
+  border-bottom: 1px solid #CBCBCB;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.article {
+  color: #404040;
+  text-decoration: none;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1em;
+  width: calc(100% * 2/3 - 2em);
+}
+
+article img {
+  padding: 1em;
+  width: calc(100% * 1/3 - 2em);
+}
+
+.meta {
+  color: #B7B6B7;
+}

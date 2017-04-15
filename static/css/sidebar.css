@@ -1,0 +1,13 @@
+.sidebar {
+  padding: 0 1em;
+  flex: 1 2 fit-content;
+  border-right: 1px solid #CBCBCB;
+}
+.sidebar p, .sidebar h1 {
+  display: block;
+  cursor: pointer;
+  transition: .1s all;
+}
+.sidebar p:hover, .sidebar h1:hover {
+  color: #1A86F8;
+}
