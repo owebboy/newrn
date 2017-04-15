@@ -25,6 +25,16 @@ article {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+article:first-of-type:hover {
+  border-top: 1px solid transparent;
+}
+article:hover {
+  background: #FAF9FA;
+  border-top: 1px solid #CBCBCB;
+  border-bottom: 1px solid #CBCBCB;
 }
 
 .article {

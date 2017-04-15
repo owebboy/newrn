@@ -1,7 +1,6 @@
 var requester = require('./requester');
 var interface = require('./interface');
 
-const sidebar = document.querySelector('.sidebar')
 const body = document.querySelector('.articles')
 const logo = document.querySelector('.sidebar h1')
 
@@ -26,6 +25,7 @@ requester.listTopArticles()
 
 
 window.updateArticles = function updateArticles(str) {
+  window.scrollTo(0,0);
   interface.updateHeader(str)
   requester.listArticles(str, function(articles) {
     body.innerHTML = ''

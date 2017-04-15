@@ -2,6 +2,7 @@
 
 const sidebar = document.querySelector('.sidebar')
 const body = document.querySelector('.articles')
+const title = document.querySelector('title')
 
 module.exports = {
   createListItem: function(val) {
@@ -54,6 +55,8 @@ module.exports = {
   },
   updateHeader: function(str) {
     var header = document.querySelector('header')
-    header.textContent = str;
+    title.textContent = 'newrn | ' + str
+    header.textContent = str
+    localStorage.currentSource = str
   }
 }
