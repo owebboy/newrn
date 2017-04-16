@@ -58,5 +58,19 @@ module.exports = {
     title.textContent = 'newrn | ' + str
     header.textContent = str
     localStorage.currentSource = str
+  },
+  loader: {
+    show: function() {
+      var loading = document.createElement('div')
+      loading.classList.add('loading')
+      var image = document.createElement('img')
+      image.src = 'static/img/radio.svg'
+      loading.appendChild(image)
+      body.appendChild(loading)
+    },
+    hide: function() {
+      var loading = document.querySelector('.loading')
+      body.removeChild(loading)
+    }
   }
 }

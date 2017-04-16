@@ -17,13 +17,16 @@ module.exports = {
   },
 
   // request top sources of the articles
-  listTopArticles: function() {
+  listTopArticles: function(cb) {
     var self = this;
     this.listSources(function(sources) {
       for (var i = 0; i < sources.length; i++) {
         self.listArticles(sources[i].id, function(articles) {
           interface.article({ article: articles.articles[0], source: articles.source });
         })
+        if (i === sources.length - 1) {
+          return cb()
+        }
       }
     })
   }

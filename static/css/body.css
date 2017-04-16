@@ -11,6 +11,11 @@ body {
   flex: 2;
 }
 
+.loading {
+  padding: 1em;
+  text-align: center;
+}
+
 header {
   padding: 1em 0;
   margin: 0;
