@@ -1,21 +1,33 @@
 
 
 const sidebar = document.querySelector('.sidebar')
+const modalContent = document.querySelector('.modal-content')
 const body = document.querySelector('.articles')
 const title = document.querySelector('title')
+const mobileWeather = document.querySelector('.mobileWeather')
+
+sidebar.addEventListener('click', function(e) {
+  if(e.target && e.target.classList.contains('list-item')) {
+    window.updateArticles(e.target.id)
+	}
+})
+modalContent.addEventListener('click', function(e) {
+  if(e.target && e.target.classList.contains('list-item')) {
+    window.updateArticles(e.target.id)
+	}
+})
 
 module.exports = {
-  createListItem: function(val) {
+  createListItem: function(val, source) {
     var self = this
     var listItem = document.createElement('p')
     listItem.innerHTML = val.name
     listItem.classList.add('list-item')
-    listItem.addEventListener('click', function() {
-      window.updateArticles(val.id)
-    })
-    sidebar.appendChild(listItem)
+    listItem.id = val.id
+    sidebar.appendChild(listItem.cloneNode(true))
+    modalContent.appendChild(listItem.cloneNode(true))
   },
-  article: function(val) {
+  article: function(val, source) {
     var art = val.article
     var src = val.source
     var wrapper = document.createElement('article')
@@ -23,8 +35,15 @@ module.exports = {
     article.classList.add('article')
     article.href = art.url
 
+    if (source) {
+      var source = document.createElement('p')
+      source.classList.add('article-source')
+      source.textContent = src
+      article.appendChild(source)
+    }
+
     var title = document.createElement('h3')
-    title.textContent = art.title
+    title.innerHTML = art.title
     article.appendChild(title)
 
     var meta = document.createElement('p')
@@ -56,8 +75,27 @@ module.exports = {
   updateHeader: function(str) {
     var header = document.querySelector('header')
     title.textContent = 'newrn | ' + str
-    header.textContent = str
+    header.textContent = str.replace(/-/g, ' ')
     localStorage.currentSource = str
+  },
+  setMobileHeader: function(deg, name) {
+    mobileWeather.innerHTML = '<h3>' + deg.toFixed(0) + '&deg; F </h3>' + name
+  },
+  weather: {
+    loader: {
+      show: function() {
+        console.log('yo');
+        var img = document.createElement('img')
+        img.classList.add('mobileLoader')
+        img.src = '/static/img/radio.svg'
+        img.width = 32
+        img.height = 32
+        mobileWeather.appendChild(img)
+      },
+      hide: function() {
+        mobileWeather.removeChild(document.querySelector('.mobileLoader'))
+      }
+    }
   },
   loader: {
     show: function() {

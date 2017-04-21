@@ -11,3 +11,9 @@
 .sidebar p:hover, .sidebar h1:hover {
   color: #1A86F8;
 }
+
+@media only screen and (max-width : 320px) {
+  .sidebar {
+    flex: 1 2;
+  }
+}

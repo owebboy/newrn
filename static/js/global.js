@@ -1,6 +1,24 @@
+var animatedModal = require('./animatedModal');
 var requester = require('./requester');
 var interface = require('./interface');
 
+$("#mobileSourcesButton").animatedModal({
+  modalTarget: 'mobileSources',
+  color: "hsla(211, 94%, 54%, .9)"
+})
+
+interface.weather.loader.show()
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    requester.getCurrentWeather(position.coords.latitude, position.coords.longitude)
+  }, function(error) {
+    interface.weather.loader.hide()
+    interface.weather.error('denied')
+  })
+} else {
+  interface.weather.loader.hide()
+  interface.weather.error('not supported')
+}
 const body = document.querySelector('.articles')
 const logo = document.querySelector('.sidebar h1')
 const loading = document.querySelector('.loading')

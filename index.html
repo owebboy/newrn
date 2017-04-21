@@ -26,6 +26,20 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
   </head>
   <body>
+    <!--Call your modal-->
+
+    <!--DEMO01-->
+       <div id="mobileSources">
+           <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID -->
+           <div id="btn-close-modal" class="close-mobileSources">
+
+               <img src="static/img/times.svg" width="64px" alt="">
+           </div>
+
+           <div class="modal-content">
+
+           </div>
+       </div>
 
 
     <div class="sidebar">
@@ -33,7 +47,12 @@
     </div>
 
     <div class="body">
+      <div class="mobile-header">
+        <a id="mobileSourcesButton" href="#mobileSources"><img src="static/img/bars.svg" alt="" width="32"></a>
+        <p class="mobileWeather"></p>
+      </div>
       <header>
+
 
       </header>
       <div class="articles">
@@ -41,7 +60,7 @@
       </div>
     </div>
 
-
+    <script src="static/js/jquery.js"></script>
     <script src="static/dist/global-min.js"></script>
   </body>
 </html>
