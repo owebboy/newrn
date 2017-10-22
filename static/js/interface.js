@@ -84,7 +84,6 @@ module.exports = {
   weather: {
     loader: {
       show: function() {
-        console.log('yo');
         var img = document.createElement('img')
         img.classList.add('mobileLoader')
         img.src = '/static/img/radio.svg'

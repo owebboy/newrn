@@ -4,14 +4,14 @@ var interface = require('./interface');
 module.exports = {
   /// request sources
   listSources: function(cb) {
-    request('https://newsapi.org/v1/sources?language=en', function(er, res) {
+    request('http://beta.newsapi.org/v2/sources?apiKey=0ef6be55c02645629c2ae9ffedd2a9b4&language=en', function(er, res) {
       cb(JSON.parse(res.body).sources)
     })
   },
 
   /// request a source's articles
   listArticles: function(source, cb) {
-    request('https://newsapi.org/v1/articles?apiKey=0ef6be55c02645629c2ae9ffedd2a9b4&source=' + source, function(er, res) {
+    request('http://beta.newsapi.org/v2/top-headlines?apiKey=0ef6be55c02645629c2ae9ffedd2a9b4&sources=' + source, function(er, res) {
        cb(JSON.parse(res.body))
     })
   },
