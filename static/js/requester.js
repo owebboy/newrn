@@ -4,7 +4,7 @@ var interface = require('./interface');
 module.exports = {
   /// request sources
   listSources: function(cb) {
-    request('http://beta.newsapi.org/v2/sources?apiKey=0ef6be55c02645629c2ae9ffedd2a9b4&language=en', function(er, res) {
+    request('http://beta.newsapi.org/v2/sources?apiKey=0ef6be55c02645629c2ae9ffedd2a9b4&language=en&country=us', function(er, res) {
       cb(JSON.parse(res.body).sources)
     })
   },

@@ -28,8 +28,9 @@ module.exports = {
     modalContent.appendChild(listItem.cloneNode(true))
   },
   article: function(val, source) {
+    console.log(val);
     var art = val.article
-    var src = val.source
+    var src = val.article.source.name
     var wrapper = document.createElement('article')
     var article = document.createElement('a')
     article.classList.add('article')
